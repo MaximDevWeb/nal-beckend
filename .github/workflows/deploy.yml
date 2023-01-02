@@ -13,5 +13,8 @@ jobs:
       - name: load repository files
         uses: actions/checkout@v3
 
+      - name: Install composer dependencies
+        run: composer install
+
       - name: run laravel test
         run: php artisan test
