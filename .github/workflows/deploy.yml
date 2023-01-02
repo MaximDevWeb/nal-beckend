@@ -1,0 +1,17 @@
+name: Laravel Deploy
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+  workflow_dispatch:
+
+jobs:
+  laravel-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: load repository files
+        uses: actions/checkout@v3
+
+      - name: run laravel test
+        run: php artisan test
