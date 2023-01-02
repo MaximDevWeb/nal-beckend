@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.vendor
-          key: vendor-${{ hashFiles('**/package-lock.json') }}
+          key: vendor-${{ hashFiles('**/composer.json') }}
 
       - name: Install composer dependencies
         run: composer install
