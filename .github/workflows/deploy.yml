@@ -32,7 +32,7 @@ jobs:
         run: php artisan test
 
   laravel-deploy:
-    needs: [laravel-tes]
+    needs: [laravel-test]
 
     runs-on: ubuntu-latest
 
