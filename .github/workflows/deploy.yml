@@ -45,3 +45,6 @@ jobs:
 
       - name: routes cash
         run: php artisan route:cache
+
+      - name: list files
+        run: ls
