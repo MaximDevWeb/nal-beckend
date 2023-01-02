@@ -13,12 +13,6 @@ jobs:
       - name: load repository files
         uses: actions/checkout@v3
 
-      - name: Cache composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/vendor
-          key: vendor-${{ hashFiles('**/composer.json') }}
-
       - name: Install composer dependencies
         run: composer install
 
@@ -39,12 +33,6 @@ jobs:
     steps:
       - name: load repository files
         uses: actions/checkout@v3
-
-      - name: Cache composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/vendor
-          key: vendor-${{ hashFiles('**/composer.json') }}
 
       - name: Install composer dependencies
         run: composer install
