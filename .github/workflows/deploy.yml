@@ -13,14 +13,47 @@ jobs:
       - name: load repository files
         uses: actions/checkout@v3
 
-      - name: Copy .env.example to .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.vendor
+          key: vendor-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install composer dependencies
         run: composer install
+
+      - name: Copy .env.example to .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Generate encryption key
         run: php artisan key:generate
 
       - name: run laravel test
         run: php artisan test
+
+  laravel-deploy:
+    needs: [laravel-tes]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: load repository files
+        uses: actions/checkout@v3
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.vendor
+          key: vendor-${{ hashFiles('**/composer.json') }}
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: optimize autoloader
+        run: composer install --optimize-autoloader --no-dev
+
+      - name: config cache
+        run: php artisan config:cache
+
+      - name: routes cash
+        run: php artisan route:cache
