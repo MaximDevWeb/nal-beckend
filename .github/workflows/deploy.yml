@@ -56,4 +56,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deployment
-        run: rsync -acp --delete  --exclude '.git/' . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
+        run: rsync -acp --delete  --exclude={'.git/'} . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
