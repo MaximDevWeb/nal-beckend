@@ -62,3 +62,10 @@ jobs:
           --exclude '.env'
           --exclude '.htaccess'
           . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
+
+      - name: Generate cache
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
+          "cd domains/maxim-dev.ru/public_html/nal-backend;
+          /usr/local/bin/php81 artisan config:cache;
+          /usr/local/bin/php81 artisan route:cache;
+          exit;"
