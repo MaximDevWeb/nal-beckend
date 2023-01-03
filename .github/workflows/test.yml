@@ -16,4 +16,4 @@ jobs:
         run: touch ~/text.txt
 
       - name: deploy
-        run: rsync -avze ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
+        run: rsync -avz ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
