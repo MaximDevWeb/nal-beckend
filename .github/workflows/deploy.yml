@@ -47,10 +47,11 @@ jobs:
         run: php artisan route:cache
 
       - name: rsync deployments
-        uses: easingthemes/ssh-deploy@main
+        uses: trendyminds/github-actions-rsync@master
+        with:
+          RSYNC_OPTIONS: -avzr --delete
+          RSYNC_TARGET: /home/a0761558/
         env:
-          ARGS: "-rltgoDzvO --delete"
-          TARGET: /home/a0761558/
-          REMOTE_HOST: 141.8.194.74
-          REMOTE_USER: a0761558
+          SSH_HOSTNAME: 141.8.194.74
+          SSH_USERNAME: a0761558
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_KEY }}
