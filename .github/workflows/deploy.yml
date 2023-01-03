@@ -50,7 +50,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           ARGS: "-rltgoDzvO --delete"
-          TARGET: /domains/maxim-dev.ru/public_html/nal-backend/
+          TARGET: /home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
           REMOTE_HOST: 141.8.194.74
           REMOTE_USER: a0761558
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_KEY }}
