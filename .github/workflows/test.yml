@@ -9,9 +9,10 @@ jobs:
     steps:
       - name: create key
         run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          echo "${{ secrets.REMOTE_HOST }}" > ~/.ssh/known_hosts
+          echo "141.8.194.74" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
       - name: create file
