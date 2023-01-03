@@ -16,10 +16,5 @@ jobs:
       - name: Generate auth hosts
         run: ssh-keyscan -H 141.8.194.74 >> ~/.ssh/known_hosts
 
-      - name: create file
-        run: |
-          echo "" > ~/text.txt
-          chmod 600 ~/text.txt
-
       - name: deploy
         run: rsync -acp ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
