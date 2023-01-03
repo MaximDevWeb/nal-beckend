@@ -59,7 +59,7 @@ jobs:
         run: rsync -acp --delete
           --exclude '.git/'
           --exclude '.github/'
-          --exclude 'test/'
+          --exclude 'tests/'
           --exclude '.gitignore'
           --exclude 'artisan'
           --exclude 'composer.lock'
@@ -67,4 +67,6 @@ jobs:
           --exclude 'phpunit.xml.dist'
           --exclude 'package.json'
           --exclude 'phpunit.xml.dist'
+          --exclude '.gitattributes'
+          --exclude '.env.example'
           . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
