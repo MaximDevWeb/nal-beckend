@@ -19,4 +19,4 @@ jobs:
           chmod 600 ~/text.txt
 
       - name: deploy
-        run: rsync -avzr --delete -e "ssh -p 22 -i ~/.ssh/id_rsa" ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
+        run: rsync -avzr --delete -e "ssh -p 22 -i ~/.ssh/id_rsa -o" ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
