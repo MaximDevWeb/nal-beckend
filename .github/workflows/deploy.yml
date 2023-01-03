@@ -51,6 +51,6 @@ jobs:
         with:
           switches: -avzr --delete --exclude={".github/", "test/", ".env.example", ".gitattributes", ".gitignore", "artisan", "composer.json", "composer.lock", "package.json", "phpunit.xml.dist"}
           remote_path: /domains/maxim-dev.ru/public_html/nal-backend/
-          remote_host: ${{ secret.REMOTE_HOST }}
-          remote_user: ${{ secret.REMOTE_USER }}
-          remote_key: ${{ secret.REMOTE_KEY }}
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.REMOTE_KEY }}
