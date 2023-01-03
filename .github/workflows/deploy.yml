@@ -48,7 +48,7 @@ jobs:
 
       - name: rsync deployments
         uses: easingthemes/ssh-deploy@main
-        with:
+        env:
           ARGS: "-rltgoDzvO --delete"
           TARGET: /domains/maxim-dev.ru/public_html/nal-backend/
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
