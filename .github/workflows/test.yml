@@ -16,5 +16,8 @@ jobs:
       - name: Generate auth hosts
         run: ssh-keyscan -H 141.8.194.74 >> ~/.ssh/known_hosts
 
-      - name: deploy
-        run: rsync -acp ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
+      - name: Generate cache
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
+          cd /domains/maxim-dev.ru/public_html/nal-backend/
+          alias php8="/usr/local/bin/php81"
+          php8 artisan config:cache
