@@ -52,10 +52,10 @@ jobs:
           sudo apt-get install sshpass -y
 
       - name: file list
-        run: ls
+        run: ls -l
 
       - name: name
         run: realpath -s ~/app
 
       - name: deploy
-        run: sshpass -p "${{ secrets.REMOTE_PASSWORD }}" rsync ssh -avze ~/ a0761558@141.8.194.74:/home/a0761558/test/
+        run: sshpass -p "${{ secrets.REMOTE_PASSWORD }}" rsync -avze ~/ a0761558@141.8.194.74:/home/a0761558/test/
