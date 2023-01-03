@@ -13,5 +13,8 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.REMOTE_HOST }}" > ~/.ssh/known_hosts
 
+      - name: create file
+        run: touch ~/text.txt
+
       - name: deploy
         run: rsync -avz ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
