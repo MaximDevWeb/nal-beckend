@@ -9,11 +9,9 @@ jobs:
     steps:
       - name: create key
         run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          echo "141.8.194.74" > ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
+          mkdir ~/.ssh
+          echo "$remote_key" > ~/.ssh/id_github
+          chmod 600 ~/.ssh/id_github
 
       - name: create file
         run: |
@@ -21,4 +19,4 @@ jobs:
           chmod 600 ~/text.txt
 
       - name: deploy
-        run: rsync -avzr --delete -e "ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
+        run: rsync -avzr --delete -e "ssh -p 22 -i ~/.ssh/id_github -o StrictHostKeyChecking=no" ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
