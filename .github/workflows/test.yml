@@ -18,7 +18,7 @@ jobs:
 
       - name: Generate cache
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
-          cd domains/maxim-dev.ru/public_html/nal-backend
-          alias php8="/usr/local/bin/php81"
-          php8 artisan config:cache
-          exit
+          cd domains/maxim-dev.ru/public_html/nal-backend;
+          alias php8="/usr/local/bin/php81";
+          php8 artisan config:cache;
+          exit;
