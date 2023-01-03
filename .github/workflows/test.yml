@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: create key
-        run: |
-          mkdir ~/.ssh
-          echo "$remote_key" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: "${{ secrets.SSH_KEY }}"
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
 
       - name: create file
         run: |
@@ -19,4 +19,4 @@ jobs:
           chmod 600 ~/text.txt
 
       - name: deploy
-        run: rsync -avzr --delete -e "ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
+        run: rsync -r ~/text.txt a0761558@141.8.194.74:/home/a0761558/test/
