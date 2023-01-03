@@ -37,15 +37,6 @@ jobs:
       - name: Install composer dependencies
         run: composer install
 
-      - name: optimize autoloader
-        run: composer install --optimize-autoloader --no-dev
-
-      - name: config cache
-        run: php artisan config:cache
-
-      - name: routes cash
-        run: php artisan route:cache
-
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -68,4 +59,6 @@ jobs:
           --exclude 'phpunit.xml.dist'
           --exclude '.gitattributes'
           --exclude '.env.example'
+          --exclude '.env'
+          --exclude '.htaccess'
           . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/nal-backend/
