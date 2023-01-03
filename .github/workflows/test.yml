@@ -18,6 +18,6 @@ jobs:
 
       - name: Generate cache
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
-          cd domains/maxim-dev.ru/public_html/nal-backend;
+          "cd domains/maxim-dev.ru/public_html/nal-backend;
           ls -la;
-          exit;
+          exit;"
