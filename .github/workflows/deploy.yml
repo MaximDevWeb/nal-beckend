@@ -47,10 +47,10 @@ jobs:
         run: php artisan route:cache
 
       - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.2.1
+        uses: easingthemes/ssh-deploy@main
         with:
-          switches: -avzr --delete
-          remote_path: /domains/maxim-dev.ru/public_html/nal-backend/
-          remote_host: ${{ secrets.REMOTE_HOST }}
-          remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.REMOTE_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          TARGET: /domains/maxim-dev.ru/public_html/nal-backend/
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_KEY }}
