@@ -18,6 +18,6 @@ jobs:
 
       - name: Generate cache
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
-          cd domains/maxim-dev.ru/public_html/nal-backend;
-          /usr/local/bin/php81 artisan config:cache
+          "cd domains/maxim-dev.ru/public_html/nal-backend;
+          /usr/local/bin/php81 artisan config:cache;
           exit;"
