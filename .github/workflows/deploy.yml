@@ -49,7 +49,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          switches: -avzr --delete --exclude={'.github/', 'test/', '.env.example', '.gitattributes', '.gitignore', 'artisan', 'composer.json', 'composer.lock', 'package.json', 'phpunit.xml.dist'}
+          switches: -avzr --delete
           remote_path: /domains/maxim-dev.ru/public_html/nal-backend/
           remote_host: ${{ secrets.REMOTE_HOST }}
           remote_user: ${{ secrets.REMOTE_USER }}
