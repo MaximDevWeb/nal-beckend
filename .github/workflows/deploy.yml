@@ -61,7 +61,6 @@ jobs:
           --exclude '.github/'
           --exclude 'tests/'
           --exclude '.gitignore'
-          --exclude 'artisan'
           --exclude 'composer.lock'
           --exclude 'composer.json'
           --exclude 'phpunit.xml.dist'
